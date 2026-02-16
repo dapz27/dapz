@@ -1,81 +1,79 @@
-import { Award, BookOpen, Heart } from 'lucide-react';
+import { Award, BookOpen, Heart, Code, Terminal, Cpu } from 'lucide-react';
 import fotoDaffa from './path/foto_daffa.jpeg';
 
 const About = () => {
-  const highlights = [
-    {
-      icon: <Award className="w-6 h-6" />,
-      title: 'GPA 3.6/4.0',
-      description: 'Maintaining excellent academic performance',
-    },
-    {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: '20+ Projects',
-      description: 'Completed various software projects',
-    },
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: 'Problem Solver',
-      description: 'Passionate about solving real-world problems',
-    },
-  ];
-
   return (
-    <section id="about" className="py-24 bg-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-6 inline-block">
-            About Me
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+    <section id="about" className="py-24 bg-slate-950 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-white mb-2">About Me</h2>
+          <p className="text-slate-400">Get to know more about my journey</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative group perspective-1000">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-            <div className="relative bg-slate-900 rounded-2xl overflow-hidden aspect-square flex items-center justify-center border border-slate-700/50 shadow-2xl">
-              <img 
+        {/* BENTO GRID LAYOUT */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[180px]">
+          
+          {/* Card 1: Photo (Large) */}
+          <div className="row-span-2 col-span-1 md:col-span-2 lg:col-span-1 relative rounded-3xl overflow-hidden border border-slate-800 group">
+             <img 
                 src={fotoDaffa} 
                 alt="Muhammad Daffa Ayvien" 
-                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
               />
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-white font-bold text-xl">Daffa Ayvien</p>
+                 <p className="text-cyan-400 text-sm">Padang, Indonesia</p>
+              </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h3 className="text-3xl font-bold text-white flex items-center gap-3">
-                <span className="w-2 h-8 bg-cyan-500 rounded-full shadow-[0_0_10px_#06b6d4]"></span>
-                Mahasiswa Teknik Informatika
-              </h3>
-              <p className="text-slate-300 leading-relaxed text-lg border-l border-slate-700 pl-4 hover:border-cyan-500 transition-colors duration-300">
-                Saya adalah mahasiswa Teknik Informatika semester 6 yang memiliki passion dalam
-                pengembangan software dan teknologi. Saya selalu antusias untuk belajar teknologi
-                baru dan menerapkannya dalam proyek-proyek yang meaningful.
-              </p>
-              <p className="text-slate-300 leading-relaxed text-lg border-l border-slate-700 pl-4 hover:border-purple-500 transition-colors duration-300">
-                Dengan pengalaman dalam berbagai bahasa pemrograman dan framework, saya mampu
-                mengembangkan aplikasi web, mobile, dan desktop. Saya berpengalaman di TechNova dan PT. Wahanakarsa swandiri dalam pengembangan web development.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-6 pt-4">
-              {highlights.map((item, index) => (
-                <div
-                  key={index}
-                  className="group text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-cyan-500/50 hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_5px_20px_rgba(6,182,212,0.15)]"
-                >
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-slate-700/50 text-cyan-400 rounded-2xl mb-4 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300 shadow-lg">
-                    {item.icon}
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">{item.title}</h4>
-                  <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">{item.description}</p>
-                </div>
-              ))}
-            </div>
+          {/* Card 2: Main Description (Wide) */}
+          <div className="row-span-2 col-span-1 md:col-span-2 lg:col-span-2 bg-slate-900/50 backdrop-blur-sm p-8 rounded-3xl border border-slate-800 flex flex-col justify-center relative overflow-hidden group hover:border-cyan-500/30 transition-colors">
+             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Terminal className="w-32 h-32 text-white" />
+             </div>
+             <h3 className="text-2xl font-bold text-white mb-4">Mahasiswa Teknik Informatika</h3>
+             <p className="text-slate-400 leading-relaxed mb-4">
+               Saya adalah mahasiswa Teknik Informatika semester 6 yang memiliki passion dalam pengembangan software. 
+               Berpengalaman di <span className="text-cyan-400">TechNova</span> dan <span className="text-cyan-400">PT. Wahanakarsa swandiri</span>.
+             </p>
+             <p className="text-slate-400 leading-relaxed">
+               Mampu mengembangkan aplikasi web, mobile, dan desktop. Selalu antusias belajar teknologi baru.
+             </p>
           </div>
+
+          {/* Card 3: Stats (Tall) */}
+          <div className="row-span-2 col-span-1 bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-3xl flex flex-col justify-between text-white relative overflow-hidden">
+             <div className="absolute -right-4 -top-4 bg-white/10 w-32 h-32 rounded-full blur-2xl"></div>
+             <div>
+                <Award className="w-10 h-10 mb-4 text-blue-200" />
+                <h4 className="text-4xl font-bold mb-1">3.6<span className="text-xl text-blue-200">/4.0</span></h4>
+                <p className="text-blue-100 text-sm">GPA Score</p>
+             </div>
+             <div className="mt-8">
+                <BookOpen className="w-10 h-10 mb-4 text-blue-200" />
+                <h4 className="text-4xl font-bold mb-1">20+</h4>
+                <p className="text-blue-100 text-sm">Projects Completed</p>
+             </div>
+          </div>
+
+          {/* Card 4: Specialization (Small) */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1 bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:bg-slate-800 transition-colors group">
+             <Cpu className="w-8 h-8 text-purple-400 mb-3 group-hover:scale-110 transition-transform" />
+             <h4 className="font-bold text-white">AR / VR</h4>
+             <p className="text-slate-400 text-sm">Specialized Development</p>
+          </div>
+
+          {/* Card 5: Soft Skill (Small) */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-slate-900 rounded-3xl border border-slate-800 p-6 flex items-center gap-6 hover:bg-slate-800 transition-colors">
+             <div className="bg-cyan-500/10 p-4 rounded-full">
+                <Heart className="w-6 h-6 text-cyan-400" />
+             </div>
+             <div>
+                <h4 className="font-bold text-white text-lg">Problem Solver</h4>
+                <p className="text-slate-400 text-sm">Passionate about solving real-world problems through code.</p>
+             </div>
+          </div>
+
         </div>
       </div>
     </section>

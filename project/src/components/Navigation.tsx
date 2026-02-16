@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X, Code2, Zap } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +16,8 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -32,66 +31,89 @@ const Navigation = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent ${
-        isScrolled 
-          ? 'bg-slate-900/80 backdrop-blur-md border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.3)]' 
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2 group cursor-pointer">
-            <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
-                <Code2 className="relative w-8 h-8 text-cyan-400 transform group-hover:rotate-12 transition-transform" />
+    <>
+      <nav
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+          isScrolled ? 'w-[90%] md:w-auto' : 'w-full md:w-auto'
+        }`}
+      >
+        <div 
+          className={`mx-auto px-6 py-3 rounded-full border border-white/10 backdrop-blur-xl transition-all duration-500 ${
+            isScrolled 
+              ? 'bg-slate-900/80 shadow-[0_0_30px_rgba(6,182,212,0.3)]' 
+              : 'bg-transparent border-transparent'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-8">
+            {/* Logo */}
+            <div className="flex items-center space-x-2 group cursor-pointer" onClick={() => scrollToSection('#home')}>
+              <div className="bg-gradient-to-tr from-cyan-500 to-blue-600 p-2 rounded-lg group-hover:rotate-12 transition-transform">
+                <Code2 className="w-5 h-5 text-white" />
+              </div>
+              <span className="hidden sm:block text-lg font-bold text-white tracking-wide">
+                DAFF<span className="text-cyan-400">.DEV</span>
+              </span>
             </div>
-            <span className="text-xl font-bold text-white tracking-wider group-hover:text-cyan-300 transition-colors">
-              PORTFOLIO
-            </span>
-          </div>
 
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full px-2 py-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-cyan-400 font-medium transition-all duration-300 hover:scale-110 hover:shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                  className="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 font-medium relative group"
                 >
                   {item.name}
+                  <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-cyan-400 -translate-x-1/2 group-hover:w-1/2 transition-all duration-300"></span>
                 </button>
               ))}
             </div>
-          </div>
 
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-cyan-400 transition-colors"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* CTA Button */}
+            <div className="hidden md:block">
+                <button 
+                  onClick={() => scrollToSection('#contact')}
+                  className="flex items-center gap-2 px-5 py-2 bg-cyan-500/10 text-cyan-400 border border-cyan-500/50 rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300"
+                >
+                    <Zap className="w-4 h-4" />
+                    <span>Hire Me</span>
+                </button>
+            </div>
+
+            {/* Mobile Toggle */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white hover:text-cyan-400 transition-colors p-2"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
 
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-800">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-3 py-2 text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 rounded-md transition-colors font-medium"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 md:hidden">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="text-2xl text-white font-bold hover:text-cyan-400 transition-colors"
+            >
+              {item.name}
+            </button>
+          ))}
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-8 right-8 p-2 bg-white/10 rounded-full"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 

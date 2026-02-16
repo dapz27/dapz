@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,178 +11,125 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
-      value: 'daffaa1712@gmail.com',
-      link: 'mailto:daffaa1712@gmail.com',
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
-      value: '+62 895 2352 1290',
-      link: 'tel:+6289523521290',
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: 'Location',
-      value: 'Padang, Indonesia',
-      link: '#',
-    },
-  ];
-
+  // DATA SOSMED CONTACT
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, link: 'https://github.com//dapz27', name: 'GitHub' },
-    { icon: <Linkedin className="w-6 h-6" />, link: 'https://www.linkedin.com/in/muhammad-daffa-ayvien-3a25783b1/', name: 'LinkedIn' },
-    { icon: <Instagram className="w-6 h-6" />, link: 'https://instagram.com//dxpzz_', name: 'Instagram' },
+    { icon: Github, href: 'https://github.com/dapz27', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/muhammad-daffa-ayvien-3a25783b1/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/dxpzz_', label: 'Instagram' },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950 text-white relative">
-       {/* Background Grid Pattern */}
-       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Decoration */}
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-cyan-900/10 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">Get In Touch</h2>
-          <div className="w-20 h-1 bg-cyan-500 mx-auto mb-6 shadow-[0_0_10px_#06b6d4]"></div>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-5 gap-12">
+            
+            {/* Left: Info */}
+            <div className="lg:col-span-2 space-y-12">
+                <div>
+                    <h2 className="text-5xl font-bold text-white mb-6">Let's Work <br/><span className="text-cyan-400">Together.</span></h2>
+                    <p className="text-slate-400 text-lg">
+                        Have a project in mind? Looking for a partner? I'm available for new challenges.
+                    </p>
+                </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-8">
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
-                <h3 className="text-2xl font-bold mb-8 text-white">Contact Information</h3>
                 <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                    <a
-                    key={index}
-                    href={info.link}
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-700/50 transition-all duration-300 group border border-transparent hover:border-cyan-500/30"
-                    >
-                    <div className="flex-shrink-0 w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-colors">
-                        {info.icon}
+                    <div className="flex items-center gap-4 text-white">
+                        <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800">
+                            <Mail className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <div>
+                            <p className="text-slate-400 text-sm">Email me at</p>
+                            <a href="mailto:daffaa1712@gmail.com" className="font-semibold hover:text-cyan-400 transition-colors">daffaa1712@gmail.com</a>
+                        </div>
                     </div>
-                    <div>
-                        <p className="text-slate-400 text-sm mb-1">{info.title}</p>
-                        <p className="font-semibold text-white group-hover:text-cyan-300 transition-colors">{info.value}</p>
+                    <div className="flex items-center gap-4 text-white">
+                        <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800">
+                            <Phone className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <div>
+                            <p className="text-slate-400 text-sm">Call me at</p>
+                            <a href="tel:+6289523521290" className="font-semibold hover:text-cyan-400 transition-colors">+62 895 2352 1290</a>
+                        </div>
                     </div>
-                    </a>
-                ))}
+                    <div className="flex items-center gap-4 text-white">
+                        <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center border border-slate-800">
+                            <MapPin className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <div>
+                            <p className="text-slate-400 text-sm">Base location</p>
+                            <p className="font-semibold">Padang, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ICON SOSMED YANG SUDAH DIPERBAIKI */}
+                <div className="flex gap-4">
+                     {socialLinks.map((social, i) => (
+                         <a 
+                           key={i} 
+                           href={social.href}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-cyan-500 hover:text-white transition-all transform hover:scale-110"
+                           aria-label={social.label}
+                         >
+                             <social.icon className="w-5 h-5" />
+                         </a>
+                     ))}
                 </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
-              <h4 className="text-xl font-bold mb-6">Connect on Social</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-slate-700 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-600 hover:text-white transition-all transform hover:scale-110 shadow-lg"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
+            {/* Right: Form (Tetap Gacor) */}
+            <div className="lg:col-span-3 bg-slate-900 p-8 md:p-10 rounded-3xl border border-slate-800 relative">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                            <label className="text-sm font-semibold text-slate-400">Your Name</label>
+                            <input
+                                type="text" name="name" value={formData.name} onChange={handleChange} required
+                                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                                placeholder="John Doe"
+                            />
+                        </div>
+                         <div className="space-y-2">
+                            <label className="text-sm font-semibold text-slate-400">Email Address</label>
+                            <input
+                                type="email" name="email" value={formData.email} onChange={handleChange} required
+                                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                                placeholder="john@example.com"
+                            />
+                        </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-400">Subject</label>
+                        <input
+                            type="text" name="subject" value={formData.subject} onChange={handleChange} required
+                            className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                            placeholder="Project Proposal"
+                        />
+                    </div>
+
+                     <div className="space-y-2">
+                        <label className="text-sm font-semibold text-slate-400">Message</label>
+                        <textarea
+                            name="message" value={formData.message} onChange={handleChange} required rows={5}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                            placeholder="Tell me about your project..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all flex items-center justify-center gap-2 group">
+                        Send Message <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                </form>
             </div>
-
-            <div className="p-6 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-500/20 rounded-2xl backdrop-blur-sm">
-              <h4 className="font-bold mb-2 text-cyan-300">Open for Opportunities</h4>
-              <p className="text-slate-300 text-sm">
-                Saya terbuka untuk internship, freelance projects, dan kolaborasi menarik lainnya.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-slate-800/30 backdrop-blur-md p-8 rounded-3xl border border-slate-700 shadow-2xl">
-            <h3 className="text-2xl font-bold mb-8 text-white">Send Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="group">
-                <label htmlFor="name" className="block text-sm font-semibold mb-2 text-slate-300 group-focus-within:text-cyan-400 transition-colors">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-white placeholder-slate-500 transition-all"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div className="group">
-                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-slate-300 group-focus-within:text-cyan-400 transition-colors">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-white placeholder-slate-500 transition-all"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div className="group">
-                <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-slate-300 group-focus-within:text-cyan-400 transition-colors">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-white placeholder-slate-500 transition-all"
-                  placeholder="What's this about?"
-                />
-              </div>
-
-              <div className="group">
-                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-slate-300 group-focus-within:text-cyan-400 transition-colors">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-white placeholder-slate-500 resize-none transition-all"
-                  placeholder="Your message here..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-xl font-bold hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3"
-              >
-                <Send className="w-5 h-5" />
-                Send Message
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </section>
