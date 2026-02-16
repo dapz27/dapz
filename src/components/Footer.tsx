@@ -12,10 +12,17 @@ const Footer = () => {
            <p className="text-slate-500 text-sm mt-1">Building digital experiences that matter.</p>
         </div>
 
+        {/* LINK FOOTER DIPERBAIKI */}
         <div className="flex gap-6">
-            <a href="https://github.com//dapz27" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors"><Github className="w-5 h-5"/></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5"/></a>
-            <a href="mailto:daffaa1712@gmail.com" className="text-slate-400 hover:text-white transition-colors"><Mail className="w-5 h-5"/></a>
+            <a href="https://github.com/dapz27" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                <Github className="w-5 h-5"/>
+            </a>
+            <a href="https://www.linkedin.com/in/muhammad-daffa-ayvien-3a25783b1/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                <Linkedin className="w-5 h-5"/>
+            </a>
+            <a href="mailto:daffaa1712@gmail.com" className="text-slate-400 hover:text-white transition-colors">
+                <Mail className="w-5 h-5"/>
+            </a>
         </div>
 
         <div className="text-slate-500 text-sm flex items-center gap-1">

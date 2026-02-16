@@ -8,6 +8,13 @@ const Hero = () => {
     }
   };
 
+  // DATA SOSMED KAMU SUDAH DIPASANG DISINI
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/dapz27", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-daffa-ayvien-3a25783b1/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:daffaa1712@gmail.com", label: "Email" }
+  ];
+
   return (
     <section
       id="home"
@@ -49,7 +56,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-              <button className="px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-cyan-50 hover:scale-105 transition-all flex items-center justify-center gap-2">
+              <button 
+                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 bg-white text-slate-900 rounded-xl font-bold hover:bg-cyan-50 hover:scale-105 transition-all flex items-center justify-center gap-2"
+              >
                 <ExternalLink className="w-5 h-5" />
                 View Portfolio
               </button>
@@ -59,10 +69,18 @@ const Hero = () => {
               </button>
             </div>
 
+            {/* LINK SOSMED DIPERBAIKI DISINI */}
             <div className="flex items-center justify-center lg:justify-start gap-6 pt-8">
-               {[Github, Linkedin, Mail].map((Icon, i) => (
-                 <a key={i} href="#" className="p-3 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-500/30">
-                   <Icon className="w-6 h-6" />
+               {socialLinks.map((social, i) => (
+                 <a 
+                   key={i} 
+                   href={social.href}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="p-3 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-500/30"
+                   aria-label={social.label}
+                 >
+                   <social.icon className="w-6 h-6" />
                  </a>
                ))}
             </div>

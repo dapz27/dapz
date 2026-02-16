@@ -14,6 +14,13 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // DATA SOSMED CONTACT
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/dapz27', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/muhammad-daffa-ayvien-3a25783b1/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/dxpzz_', label: 'Instagram' },
+  ];
+
   return (
     <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
       {/* Decoration */}
@@ -38,7 +45,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <p className="text-slate-400 text-sm">Email me at</p>
-                            <a href="mailto:daffaa1712@gmail.com" className="font-semibold hover:text-cyan-400">daffaa1712@gmail.com</a>
+                            <a href="mailto:daffaa1712@gmail.com" className="font-semibold hover:text-cyan-400 transition-colors">daffaa1712@gmail.com</a>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 text-white">
@@ -47,7 +54,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <p className="text-slate-400 text-sm">Call me at</p>
-                            <a href="tel:+6289523521290" className="font-semibold hover:text-cyan-400">+62 895 2352 1290</a>
+                            <a href="tel:+6289523521290" className="font-semibold hover:text-cyan-400 transition-colors">+62 895 2352 1290</a>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 text-white">
@@ -61,16 +68,24 @@ const Contact = () => {
                     </div>
                 </div>
 
+                {/* ICON SOSMED YANG SUDAH DIPERBAIKI */}
                 <div className="flex gap-4">
-                     {[Github, Linkedin, Instagram].map((Icon, i) => (
-                         <a key={i} href="#" className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-cyan-500 hover:text-white transition-all">
-                             <Icon className="w-5 h-5" />
+                     {socialLinks.map((social, i) => (
+                         <a 
+                           key={i} 
+                           href={social.href}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-cyan-500 hover:text-white transition-all transform hover:scale-110"
+                           aria-label={social.label}
+                         >
+                             <social.icon className="w-5 h-5" />
                          </a>
                      ))}
                 </div>
             </div>
 
-            {/* Right: Form */}
+            {/* Right: Form (Tetap Gacor) */}
             <div className="lg:col-span-3 bg-slate-900 p-8 md:p-10 rounded-3xl border border-slate-800 relative">
                 <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-6">
