@@ -50,25 +50,28 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px]"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Berikut adalah teknologi dan tools yang saya kuasai dalam pengembangan software
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Skills & <span className="text-cyan-400">Expertise</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 border ${
                 activeCategory === category.id
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.4)]'
+                  : 'bg-slate-800/50 text-slate-400 border-slate-700 hover:bg-slate-700 hover:text-white'
               }`}
             >
               {category.icon}
@@ -77,50 +80,46 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
+        <div className="max-w-4xl mx-auto bg-slate-900/50 backdrop-blur-xl p-8 rounded-2xl border border-slate-800 shadow-2xl">
+          <div className="space-y-8">
             {skills[activeCategory as keyof typeof skills].map((skill, index) => (
               <div
                 key={skill.name}
-                className="animate-fade-in-up"
+                className="group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex justify-between mb-2">
-                  <span className="font-semibold text-gray-900">{skill.name}</span>
-                  <span className="text-blue-600 font-semibold">{skill.level}%</span>
+                <div className="flex justify-between mb-3">
+                  <span className="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">{skill.name}</span>
+                  <span className="text-cyan-400 font-mono font-bold">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden border border-slate-700">
                   <div
-                    className="bg-gradient-to-r from-blue-600 to-cyan-600 h-full rounded-full transition-all duration-1000 ease-out"
+                    className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(6,182,212,0.5)] relative"
                     style={{ width: `${skill.level}%` }}
-                  ></div>
+                  >
+                    <div className="absolute top-0 right-0 bottom-0 w-1 bg-white/50 blur-[2px]"></div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-            <Code className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">5+</h4>
-            <p className="text-gray-600">Programming Languages</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-            <Globe className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">10+</h4>
-            <p className="text-gray-600">Frameworks & Libraries</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-            <Database className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">5+</h4>
-            <p className="text-gray-600">Database Systems</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-            <Wrench className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-            <h4 className="text-2xl font-bold text-gray-900 mb-1">15+</h4>
-            <p className="text-gray-600">Development Tools</p>
-          </div>
+        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+                { icon: Code, count: "5+", label: "Programming Languages" },
+                { icon: Globe, count: "10+", label: "Frameworks & Libraries" },
+                { icon: Database, count: "5+", label: "Database Systems" },
+                { icon: Wrench, count: "15+", label: "Development Tools" }
+            ].map((stat, idx) => (
+              <div key={idx} className="relative group p-1 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 hover:from-cyan-500 hover:to-purple-600 transition-all duration-500">
+                <div className="text-center p-8 bg-slate-900 rounded-xl h-full relative z-10 transition-colors group-hover:bg-slate-900/90">
+                    <stat.icon className="w-12 h-12 text-cyan-500 mx-auto mb-4 group-hover:text-white group-hover:scale-110 transition-transform duration-300" />
+                    <h4 className="text-3xl font-extrabold text-white mb-2">{stat.count}</h4>
+                    <p className="text-slate-400 text-sm font-medium">{stat.label}</p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </section>
