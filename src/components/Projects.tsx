@@ -16,7 +16,7 @@ const Projects = () => {
       description:
         'Aplikasi manajemen tugas dengan fitur real-time collaboration, notifications, dan analytics. Menggunakan Next.js dan Supabase.',
       image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'],
+      tags: ['Next.js', 'Supabase', 'TypeScript', 'TailwindCSS'],
       github: 'https://github.com',
       demo: 'https://example.com',
     },
