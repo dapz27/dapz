@@ -16,7 +16,7 @@ const Projects = () => {
       description:
         'Aplikasi manajemen tugas dengan fitur real-time collaboration, notifications, dan analytics. Menggunakan Next.js dan Supabase.',
       image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'Supabase', 'TypeScript', 'Tailwind'],
+      tags: ['Next.js', 'Supabase', 'TypeScript', 'TailwindCSS'],
       github: 'https://github.com',
       demo: 'https://example.com',
     },
@@ -42,7 +42,7 @@ const Projects = () => {
       title: 'AR/VR Interactive Experience',
       description:
         'Aplikasi Augmented Reality untuk edukasi interaktif dan Virtual Reality tour. Dibangun menggunakan Unity 3D dan Vuforia SDK untuk pengalaman immersive.',
-      image: 'https://images.pexels.com/photos/1261820/pexels-photo-1261820.jpeg?auto=compress&cs=tinysrgb&w=800', // Gambar orang menggunakan VR headset
+      image: 'https://images.pexels.com/photos/1261820/pexels-photo-1261820.jpeg?auto=compress&cs=tinysrgb&w=800',
       tags: ['Unity 3D', 'C#', 'Vuforia', 'Blender'],
       github: 'https://github.com',
       demo: 'https://example.com',
@@ -59,65 +59,70 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-24 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Projects & Portfolio</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Berikut adalah beberapa project yang telah saya kerjakan
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Projects & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Portfolio</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto rounded-full"></div>
+          <p className="text-slate-400 max-w-2xl mx-auto mt-6 text-lg">
+            Berikut adalah beberapa project yang telah saya kerjakan dengan sentuhan teknologi modern.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
             >
-              <div className="relative overflow-hidden h-48">
+              <div className="relative overflow-hidden h-52">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-blue-50 text-blue-600 text-xs rounded-full font-semibold"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
+                
+                {/* Overlay Links on Hover */}
+                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/60 backdrop-blur-sm">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="p-3 bg-slate-800 rounded-full text-white hover:bg-cyan-500 hover:scale-110 transition-all"
                   >
-                    <Github className="w-5 h-5" />
-                    <span className="text-sm font-semibold">Code</span>
+                    <Github className="w-6 h-6" />
                   </a>
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="p-3 bg-slate-800 rounded-full text-white hover:bg-purple-500 hover:scale-110 transition-all"
                   >
-                    <ExternalLink className="w-5 h-5" />
-                    <span className="text-sm font-semibold">Demo</span>
+                    <ExternalLink className="w-6 h-6" />
                   </a>
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                </h3>
+                <p className="text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed flex-grow">
+                    {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 bg-slate-900 text-cyan-400 text-xs rounded-full font-semibold border border-slate-700"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
