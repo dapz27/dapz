@@ -34,7 +34,7 @@ const About = () => {
              <h3 className="text-2xl font-bold text-white mb-4">Mahasiswa Teknik Informatika</h3>
              <p className="text-slate-400 leading-relaxed mb-4">
                Saya adalah mahasiswa Teknik Informatika semester 6 yang memiliki passion dalam pengembangan software. 
-               Berpengalaman di <span className="text-cyan-400">TechNova</span> dan <span className="text-cyan-400">PT. Wahana Jayakarsa</span>.
+               Berpengalaman di <span className="text-cyan-400">TechNova</span> dan <span className="text-cyan-400">PT. Wahanakarsa swandiri</span>.
              </p>
              <p className="text-slate-400 leading-relaxed">
                Mampu mengembangkan aplikasi web, mobile, dan desktop. Selalu antusias belajar teknologi baru.
