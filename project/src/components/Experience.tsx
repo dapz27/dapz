@@ -35,7 +35,7 @@ const Experience = () => {
     },
     {
       title: 'Marketing Executive',
-      company: 'PT. Astral Byte',
+      company: 'PT. Astral Byte Technology',
       period: 'Feb 2026 - Present',
       description: 'Responsible for driving business growth by promoting web development services.',
       achievements: ['Promoted custom web development solutions', 'Spearheaded marketing launch', 'Built strategic partnerships'],

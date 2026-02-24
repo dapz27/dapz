@@ -1,55 +1,81 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
+// IMPORT GAMBAR SESUAI LIST FILE DI VS CODE KAMU (Screenshot 2026-02-16 164357.jpg)
+import imgCrossVal from './path/cross_validation.png';
+import imgKlasifikasi from './path/produkklasifikasi.png';
+import imgKmeansResult from './path/kmeansclustering.jpg';
+import imgKmeans from './path/kmeansimplementation.jpg';
+import imgPengolahan from './path/salesdataprocessing.jpg';
+import imgRegression from './path/regressionanalisis.png';
+import imgUjiCoba1 from './path/dataexploration.webp';
+import imgUjiCoba2 from './path/ujicobamagangday2.jpg';
+
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Platform e-commerce lengkap dengan fitur cart, payment gateway, dan admin dashboard.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'Cross Validation Analysis',
+      description: 'Analisis evaluasi model menggunakan Cross Validation untuk membandingkan performa Linear Regression vs Decision Tree.',
+      image: imgCrossVal,
+      tags: ['Python', 'Scikit-Learn', 'Model Evaluation', 'Data Science'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
     {
-      title: 'Task Management App',
-      description: 'Aplikasi manajemen tugas dengan fitur real-time collaboration, notifications, dan analytics.',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'Supabase', 'TypeScript', 'TailwindCSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'Product Classification',
+      description: 'Sistem klasifikasi produk swalayan menjadi kategori "Laris", "Sedang", dan "Kurang Laris" berbasis data transaksi.',
+      image: imgKlasifikasi,
+      tags: ['Classification', 'Data Mining', 'Python', 'Business Logic'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
     {
-      title: 'Mobile Fitness Tracker',
-      description: 'Aplikasi mobile untuk tracking aktivitas fitness, kalori, dan progress workout.',
-      image: 'https://images.pexels.com/photos/4162449/pexels-photo-4162449.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'K-Means Clustering Results',
+      description: 'Visualisasi hasil clustering data swalayan, menampilkan pengelompokan produk berdasarkan pola penjualan.',
+      image: imgKmeansResult,
+      tags: ['Clustering', 'K-Means', 'Visualization', 'Unsupervised Learning'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'Dashboard analitik untuk social media dengan data visualization dan reporting.',
-      image: 'https://images.pexels.com/photos/270557/pexels-photo-270557.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Vue.js', 'Python', 'Flask', 'D3.js'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'K-Means Implementation',
+      description: 'Implementasi algoritma K-Means dari awal untuk segmentasi data pelanggan dan produk swalayan.',
+      image: imgKmeans,
+      tags: ['Machine Learning', 'Python', 'Algorithm', 'Data Analysis'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
     {
-      title: 'AR/VR Interactive Experience',
-      description: 'Aplikasi Augmented Reality untuk edukasi interaktif dan Virtual Reality tour.',
-      image: 'https://images.pexels.com/photos/1261820/pexels-photo-1261820.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Unity 3D', 'C#', 'Vuforia', 'Blender'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'Sales Data Processing',
+      description: 'Script otomatisasi pengolahan data penjualan harian swalayan, menghitung omzet, dan tren produk.',
+      image: imgPengolahan,
+      tags: ['Data Processing', 'Pandas', 'Automation', 'Analytics'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
     {
-      title: 'Weather Forecast App',
-      description: 'Aplikasi cuaca dengan prediksi 7 hari, maps integration, dan beautiful UI.',
-      image: 'https://images.pexels.com/photos/1154510/pexels-photo-1154510.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'API Integration', 'Maps', 'PWA'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      title: 'Regression Analysis',
+      description: 'Penerapan model Regresi untuk memprediksi total penjualan berdasarkan variabel jumlah dan harga satuan.',
+      image: imgRegression,
+      tags: ['Regression', 'Predictive Modeling', 'Python', 'Statistics'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
     },
+    {
+      title: 'Dataset Exploration (Day 1)',
+      description: 'Eksplorasi awal dataset (EDA), pengecekan tipe data, missing values, dan statistik deskriptif dasar.',
+      image: imgUjiCoba1,
+      tags: ['EDA', 'Pandas', 'Data Cleaning', 'Python'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
+    },
+    {
+      title: 'Educational Data Viz (Day 2)',
+      description: 'Dashboard visualisasi data pendidikan menampilkan grafik nilai dan statistik kelulusan mahasiswa.',
+      image: imgUjiCoba2,
+      tags: ['Data Visualization', 'Charts', 'Dashboard', 'Education Tech'],
+      github: 'https://github.com/dapz27',
+      demo: '#',
+    }
   ];
 
   return (
@@ -58,9 +84,9 @@ const Projects = () => {
         <div className="flex justify-between items-end mb-16">
            <div>
               <h2 className="text-4xl font-bold text-white mb-2">Selected Works</h2>
-              <p className="text-slate-400">Showcase of my latest development projects</p>
+              <p className="text-slate-400">Showcase of my Data Science & Development projects</p>
            </div>
-           <a href="https://github.com" className="hidden md:flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
+           <a href="https://github.com/dapz27" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
               View Github <ArrowUpRight className="w-4 h-4" />
            </a>
         </div>
@@ -69,17 +95,17 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer"
+              className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all"
             >
               {/* Background Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 object-top"
               />
               
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent opacity-90 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent opacity-90 transition-opacity duration-300"></div>
 
               {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -91,14 +117,14 @@ const Projects = () => {
                             </span>
                         ))}
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors leading-tight">{project.title}</h3>
                     <p className="text-slate-300 text-sm line-clamp-2 mb-6 group-hover:text-white transition-colors">{project.description}</p>
                     
                     <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 translate-y-4 group-hover:translate-y-0">
                         <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm">
                             <Github className="w-5 h-5" />
                         </a>
-                        <a href={project.demo} target="_blank" rel="noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm">
+                        <a href={project.demo} target="_blank" rel="noreferrer" className={`p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm ${project.demo === '#' ? 'cursor-default opacity-80' : ''}`}>
                             <ExternalLink className="w-5 h-5" />
                         </a>
                     </div>
@@ -109,7 +135,7 @@ const Projects = () => {
         </div>
         
         <div className="mt-12 text-center md:hidden">
-             <a href="https://github.com" className="inline-flex items-center gap-2 text-cyan-400 font-bold border-b border-cyan-400 pb-1">
+             <a href="https://github.com/dapz27" className="inline-flex items-center gap-2 text-cyan-400 font-bold border-b border-cyan-400 pb-1">
               View All on Github <ArrowUpRight className="w-4 h-4" />
            </a>
         </div>
