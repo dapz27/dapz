@@ -1,13 +1,13 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 // IMPORT GAMBAR SESUAI LIST FILE DI VS CODE KAMU (Screenshot 2026-02-16 164357.jpg)
-import imgCrossVal from './path/Cross_validationhasil.png';
-import imgKlasifikasi from './path/klairifikasi produk.jpg';
-import imgKmeansResult from './path/KMEANS SWALAYAN PNG.jpg';
-import imgKmeans from './path/Kmeansswalayan.jpg';
-import imgPengolahan from './path/Pengolahandataswalayan.jpg';
-import imgRegression from './path/REGRESSION_SWALAYAN.jpg';
-import imgUjiCoba1 from './path/uji cobamagang1.jpg';
+import imgCrossVal from './path/cross_validation.png';
+import imgKlasifikasi from './path/produkklasifikasi.png';
+import imgKmeansResult from './path/kmeansclustering.jpg';
+import imgKmeans from './path/kmeansimplementation.jpg';
+import imgPengolahan from './path/salesdataprocessing.jpg';
+import imgRegression from './path/regressionanalisis.png';
+import imgUjiCoba1 from './path/dataexploration.webp';
 import imgUjiCoba2 from './path/ujicobamagangday2.jpg';
 
 const Projects = () => {
