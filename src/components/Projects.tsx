@@ -1,6 +1,6 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
-// IMPORT GAMBAR SESUAI LIST FILE DI VS CODE KAMU (Screenshot 2026-02-16 164357.jpg)
+// IMPORT GAMBAR SESUAI LIST FILE DI VS CODE KAMU
 import imgCrossVal from './path/cross_validation.png';
 import imgKlasifikasi from './path/produkklasifikasi.png';
 import imgKmeansResult from './path/kmeansclustering.jpg';
@@ -17,7 +17,7 @@ const Projects = () => {
       description: 'Analisis evaluasi model menggunakan Cross Validation untuk membandingkan performa Linear Regression vs Decision Tree.',
       image: imgCrossVal,
       tags: ['Python', 'Scikit-Learn', 'Model Evaluation', 'Data Science'],
-      github: 'https://github.com/dapz27',
+      github: 'https://github.com/dapz27/cross-validation-analysis', // <-- Link udah diupdate
       demo: '#',
     },
     {
@@ -25,7 +25,7 @@ const Projects = () => {
       description: 'Sistem klasifikasi produk swalayan menjadi kategori "Laris", "Sedang", dan "Kurang Laris" berbasis data transaksi.',
       image: imgKlasifikasi,
       tags: ['Classification', 'Data Mining', 'Python', 'Business Logic'],
-      github: 'https://github.com/dapz27',
+      github: 'https://github.com/dapz27/product-classification', // <-- Link udah diupdate
       demo: '#',
     },
     {
@@ -95,6 +95,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
+              onClick={() => window.open(project.github, '_blank')} // <-- Baris ini bikin satu kotak bisa diklik
               className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all"
             >
               {/* Background Image */}
@@ -121,10 +122,10 @@ const Projects = () => {
                     <p className="text-slate-300 text-sm line-clamp-2 mb-6 group-hover:text-white transition-colors">{project.description}</p>
                     
                     <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 translate-y-4 group-hover:translate-y-0">
-                        <a href={project.github} target="_blank" rel="noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm">
+                        <a href={project.github} onClick={(e) => e.stopPropagation()} target="_blank" rel="noreferrer" className="p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm">
                             <Github className="w-5 h-5" />
                         </a>
-                        <a href={project.demo} target="_blank" rel="noreferrer" className={`p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm ${project.demo === '#' ? 'cursor-default opacity-80' : ''}`}>
+                        <a href={project.demo} onClick={(e) => e.stopPropagation()} target="_blank" rel="noreferrer" className={`p-3 bg-white/10 rounded-full hover:bg-cyan-500 hover:text-white transition-all text-white backdrop-blur-sm ${project.demo === '#' ? 'cursor-default opacity-80' : ''}`}>
                             <ExternalLink className="w-5 h-5" />
                         </a>
                     </div>
